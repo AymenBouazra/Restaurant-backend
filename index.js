@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json({ limit: 50 * 1024 * 1024 }))
 app.use(bodyParser.urlencoded({ limit: 50 * 1024 * 1024, extended: true, parameterLimit: 50000 }))
 
-app.get('/', console.log('hello world'))
+const authapi = require('./routes/authApi')
+app.use('/',authapi)
 
 app.listen(port, console.log('App running on port ' + port))
