@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const app = express()
 const port = 4000
 
+require('dotenv').config()
+require('./database/connect')
+
 app.use(cors());
 app.use(morgan('dev'))
 app.use(express.json())
