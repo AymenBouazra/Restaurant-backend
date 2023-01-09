@@ -22,8 +22,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const authapi = require('./routes/authApi');
-app.use('/api', authapi)
-app.use('/api', authapi)
+const userApi = require('./routes/userApi');
+
+app.use('/', authapi)
+app.use('/api', userApi)
 
 
 app.listen(port,()=> {
