@@ -22,7 +22,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const authapi = require('./routes/authApi');
-app.use('/', authapi)
+app.use('/api', authapi)
+app.use('/api', authapi)
+
 
 app.listen(port,()=> {
     console.log('App is listening on port '+port);

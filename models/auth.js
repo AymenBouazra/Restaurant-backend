@@ -4,6 +4,7 @@ const authSchema = new mongoose.Schema({
     userName:String,
     email:String,
     password:String,
+    photo:String,
     role:{type:String,default:'Admin'}
 },
 {
