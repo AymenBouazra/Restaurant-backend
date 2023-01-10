@@ -11,7 +11,7 @@ exports.getAllUsers = async(req,res) => {
 
 exports.getUserById = async(req,res) => {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findById(req.params.id,{password:0});
         res.json(user)
     } catch (error) {
         res.status(500).json({message: error.message || 'Server error!'})

@@ -30,7 +30,7 @@ exports.login = async (req, res) => {
                     role:found.role
                 }
                 const token = jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:'1d'})
-                res.json({message:'Logged in successfully',token})
+                res.json({message:'Logged in successfully',token:token})
             }
             else{
                 res.status(400).json({message:'Email or password incorrect'})

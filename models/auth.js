@@ -5,7 +5,7 @@ const authSchema = new mongoose.Schema({
     email:String,
     password:String,
     photo:String,
-    role:{type:String,default:'Admin'}
+    role:{type:String,default:'ADMIN'}
 },
 {
     timestamps:true, versionKey:false

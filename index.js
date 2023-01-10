@@ -6,15 +6,15 @@ const passport      = require('passport');
 const session       = require('express-session');
 const app           = express()
 const port          = 4000
-
 require('dotenv').config()
 require('./passport/bearer')
 require('./database/connect')
+require('./common/init_scripts/int_script')
 
 app.use(cors());
 app.use(morgan('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ limit: '100mb', extended: false }))
+app.use(express.json({limit: '100mb'}))
 app.use(bodyParser.json({ limit: 50 * 1024 * 1024 }))
 app.use(bodyParser.urlencoded({ limit: 50 * 1024 * 1024, extended: true, parameterLimit: 50000 }))
 app.use(session({ resave: true, secret: process.env.JWT_SECRET, saveUninitialized: true }));
