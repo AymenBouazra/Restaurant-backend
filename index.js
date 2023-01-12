@@ -24,7 +24,7 @@ app.use(passport.session());
 const authapi = require('./routes/authApi');
 const userApi = require('./routes/userApi');
 
-app.use('/', authapi)
+app.use('/api', authapi)
 app.use('/api', userApi)
 
 
