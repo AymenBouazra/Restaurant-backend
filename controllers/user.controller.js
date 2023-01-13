@@ -37,7 +37,15 @@ exports.createUser = async (req, res) => {
 
 exports.updateUserById = async (req, res) => {
     try {
-        await User.find(req.params.id, req.body);
+        const user = await User.findById(req.params.id);
+        if (req.body.password == '') {
+            req.body.password = user.password
+        }else{
+            const salt = bcrypt.genSaltSync(10);
+            const hash = bcrypt.hashSync(req.body.password, salt)
+            req.body.password = hash
+        }
+        await User.findByIdAndUpdate(req.params.id, req.body);
         res.json({ message: 'User updated successfully' })
     } catch (error) {
         res.status(500).json({ message: error.message || 'Server error!' })
