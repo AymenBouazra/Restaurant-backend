@@ -8,8 +8,8 @@ const app           = express()
 const port          = 4000
 require('dotenv').config()
 require('./passport/bearer')
-require('./database/connect')
 require('./common/init_scripts/int_script')
+require('./database/connect')
 
 app.use(cors());
 app.use(morgan('dev'))
