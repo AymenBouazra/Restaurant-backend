@@ -3,8 +3,10 @@ const mongoose = require('mongoose')
 const foodSchema = new mongoose.Schema({
     foodName: String,
     description: String,
-    quantity: Number,
-    price: Number,
+    priceMega: Number,
+    priceGiga: Number,
+    pricePeta: Number,
+    priceTera: Number,
     category: String,
     photo: { type: String, default: 'https://i.imgur.com/lh8Sd5C.png' }
 },

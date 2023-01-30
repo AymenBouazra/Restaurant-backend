@@ -1,5 +1,6 @@
 const Food = require('../models/food');
-const fs = require('fs')
+const fs = require('fs');
+const path = require('path');
 exports.getAllFood = async (req, res) => {
     try {
         const food = await Food.find();
@@ -20,7 +21,7 @@ exports.getFoodById = async (req, res) => {
 
 exports.createFood = async (req, res) => {
     try {
-        const foodExist = await Food.findOne({ email: req.body.email })
+        const foodExist = await Food.findOne({ foodName: req.body.foodName })
         if (foodExist) {
             res.status(400).json({ message: 'Food already exists with this name!' })
         } else {
@@ -64,6 +65,7 @@ exports.deleteFoodById = async (req, res) => {
         await Food.findByIdAndDelete(req.params.id);
         res.json({ message: 'Food deleted successfully' })
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: error.message || 'Server error!' })
     }
 }
