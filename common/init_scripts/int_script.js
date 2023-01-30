@@ -2,7 +2,7 @@ const Role = require("../../models/role");
 const User = require("../../models/auth")
 
 
-Role.countDocuments().then( async( rolesCount) => {
+Role.countDocuments().then(async (rolesCount) => {
     if (rolesCount === 0) {
         const rolesToInsert = [
             {
@@ -24,13 +24,13 @@ Role.countDocuments().then( async( rolesCount) => {
 
 // Users section
 let rolesToAffect = [];
-Role.find({ name: "SUPER_ADMIN" }).then(allRoles=> {
+Role.find({ name: "SUPER_ADMIN" }).then(allRoles => {
     if (allRoles.length > 0) {
-    rolesToAffect = allRoles.map((role) => role._id);
-}
+        rolesToAffect = allRoles.map((role) => role._id);
+    }
 });
 
-User.countDocuments().then( async (usersCount) => {
+User.countDocuments().then(async (usersCount) => {
     if (usersCount === 0) {
         const usersToInsert = [
             {
@@ -38,14 +38,14 @@ User.countDocuments().then( async (usersCount) => {
                 email: "aymenbouazra994@gmail.com",
                 password: "$2a$10$MDIRedaQqMwEzx78OdnOR.8ve5/W42.qDXm/GgQYkTsYfeioKmBkG",
                 roles: rolesToAffect,
-                photo:'https://i.imgur.com/lh8Sd5C.png'
+                photo: 'https://i.imgur.com/lh8Sd5C.png'
             },
             {
                 userName: "Wajdi Barhoumi",
-                email: "WajdiBarhoumi@gmail.com",
+                email: "Kkenzizi@gmail.com",
                 password: "$2a$10$MDIRedaQqMwEzx78OdnOR.8ve5/W42.qDXm/GgQYkTsYfeioKmBkG",
                 roles: rolesToAffect,
-                photo:'https://i.imgur.com/lh8Sd5C.png'
+                photo: 'https://i.imgur.com/lh8Sd5C.png'
             },
         ]
         await User.insertMany(usersToInsert);
