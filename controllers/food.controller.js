@@ -9,6 +9,14 @@ exports.getAllFood = async (req, res) => {
         res.status(500).json({ message: error.message || 'Server error!' })
     }
 }
+exports.getAllFoodClientSide = async (req, res) => {
+    try {
+        const food = await Food.find();
+        res.json(food)
+    } catch (error) {
+        res.status(500).json({ message: error.message || 'Server error!' })
+    }
+}
 
 exports.getFoodById = async (req, res) => {
     try {
