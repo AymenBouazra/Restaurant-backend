@@ -41,7 +41,7 @@ User.countDocuments().then(async (usersCount) => {
                 photo: 'https://i.imgur.com/lh8Sd5C.png'
             },
             {
-                userName: "Wajdi Barhoumi",
+                userName: "Karim kenzizi",
                 email: "Kkenzizi@gmail.com",
                 password: "$2a$10$MDIRedaQqMwEzx78OdnOR.8ve5/W42.qDXm/GgQYkTsYfeioKmBkG",
                 roles: rolesToAffect,

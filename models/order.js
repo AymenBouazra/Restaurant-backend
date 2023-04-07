@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const orderSchema = new mongoose.Schema(
     {
         cartItems: [],
+        orderNumber: Number,
         table: Number,
         cartTotalAmount: Number,
         cartTotalQuantity: Number,
